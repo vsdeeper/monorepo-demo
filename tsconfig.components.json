@@ -1,0 +1,13 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.lib.json",
+  "include": ["packages/components/**/*", "packages/components/**/*.vue", "auto-imports.d.ts"],
+  "exclude": ["packages/components/**/__tests__/*"],
+  "compilerOptions": {
+    "composite": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.components.tsbuildinfo",
+    "baseUrl": "./packages/components",
+    "paths": {
+      "@/*": ["./*"]
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.lib.json",
+  "include": ["packages/utils/**/*.ts"],
+  "exclude": ["packages/utils/**/__tests__/*"],
+  "compilerOptions": {
+    "composite": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.utils.tsbuildinfo",
+    "baseUrl": "./packages/utils",
+    "paths": {
+      "@/*": ["./*"]
+    }
+  }
+}

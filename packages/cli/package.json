@@ -1,0 +1,28 @@
+{
+  "name": "@vswift/cli",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "files": [
+    "scripts",
+    "bin.js"
+  ],
+  "bin": {
+    "vswift": "bin.js"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "peerDependencies": {
+    "typescript": "^5.4.3",
+    "vue-tsc": "^2.0.6"
+  },
+  "devDependencies": {
+    "commander": "^12.0.0",
+    "consola": "^3.2.3",
+    "execa": "^8.0.1",
+    "nanospinner": "^1.1.0",
+    "vite": "^5.2.7"
+  }
+}

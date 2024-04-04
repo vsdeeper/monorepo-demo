@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
+import { HelloWorld } from '@/components'
+import { MyDemo } from '@vswift/components'
 </script>
 
 <template>
@@ -14,6 +15,7 @@ import TheWelcome from './components/TheWelcome.vue'
 
   <main>
     <TheWelcome />
+    <MyDemo />
   </main>
 </template>
 
