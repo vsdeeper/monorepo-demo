@@ -18,10 +18,10 @@ program
 
 program
   .command('type-check')
-  .description('type checking')
+  .description('type check')
   .option(
     '-p, --pkg <name>',
-    'package name to perform type checking, optional value: components | utils | visual-development',
+    'package name to perform type check, optional value: components | utils | visual-development',
   )
   .action(async options => {
     const { typeCheck } = await import('./type-check.js')
@@ -30,14 +30,23 @@ program
 
 program
   .command('type-emit')
-  .description('type emitting')
+  .description('type emit')
   .option(
     '-p, --pkg <name>',
-    'package name to perform type emitting, optional value: components | utils | visual-development',
+    'package name to perform type emit, optional value: components | utils | visual-development',
   )
   .action(async options => {
     const { typeEmit } = await import('./type-emit.js')
     return typeEmit(options)
+  })
+
+program
+  .command('build')
+  .description('build')
+  .option('-p, --pkg <name>', 'package name to perform build, optional value: components | utils | visual-development')
+  .action(async options => {
+    const { buildTask } = await import('./build.js')
+    return buildTask(options)
   })
 
 program.parse(process.argv)

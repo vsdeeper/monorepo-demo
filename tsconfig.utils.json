@@ -1,10 +1,8 @@
 {
   "extends": "@vue/tsconfig/tsconfig.lib.json",
   "include": ["packages/utils/**/*.ts"],
-  "exclude": ["packages/utils/**/__tests__/*"],
+  "exclude": ["packages/utils/**/__tests__/*", "packages/utils/dist/**/*"],
   "compilerOptions": {
-    "composite": true,
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.utils.tsbuildinfo",
     "declarationDir": "packages/utils/dist/types",
     "baseUrl": "./packages/utils",
     "paths": {

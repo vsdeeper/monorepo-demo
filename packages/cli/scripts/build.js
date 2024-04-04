@@ -1,17 +1,21 @@
 import { $ } from 'execa'
 import { consola } from 'consola'
 import { createSpinner } from 'nanospinner'
+import { build } from 'vite'
+import path from 'node:path'
+import vue from '@vitejs/plugin-vue'
 
-export async function typeEmit(options) {
-  const spinner = createSpinner('type emitting...', { color: 'green' }).start()
+export async function buildTask(options) {
   try {
-    const start = Date.now()
     const { pkg } = options
     if (!pkg) throw new Error('Requires pkg parameter, optional value: components | utils | visual-development')
     switch (pkg) {
       case 'components':
       case 'visual-development': {
-        await $`vue-tsc --project tsconfig.${pkg}.json`
+        const { typeEmit } = await import('./type-emit.js')
+        if (!(await typeEmit(options))) return
+        const { buildOnly } = await import('./build-only.js')
+        await buildOnly(options)
         break
       }
       case 'utils': {
@@ -19,11 +23,8 @@ export async function typeEmit(options) {
         break
       }
     }
-    const end = Date.now()
-    spinner.success({ text: `type emit done in ${(end - start) / 1000}s` })
     return true
   } catch (error) {
-    spinner.error({ text: 'type emit failed' })
     consola.error(error)
   }
 }
