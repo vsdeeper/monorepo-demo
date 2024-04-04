@@ -8,7 +8,8 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
     "start": "vite",
-    "type-check": "vswift type-check"
+    "type-check": "vswift type-check",
+    "type-emit": "vswift type-emit"
   },
   "dependencies": {
     "@vswift/components": "workspace:*",
