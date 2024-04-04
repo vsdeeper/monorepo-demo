@@ -49,4 +49,13 @@ program
     return buildTask(options)
   })
 
+program
+  .command('release')
+  .description('release')
+  .option('-p, --pkg <name>', 'package name to perform build, optional value: components | utils | visual-development')
+  .action(async options => {
+    const { release } = await import('./release.js')
+    return release(options)
+  })
+
 program.parse(process.argv)

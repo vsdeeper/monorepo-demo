@@ -1,8 +1,8 @@
 import { $ } from 'execa'
 import { consola } from 'consola'
 import { build } from 'vite'
-import path from 'node:path'
 import vue from '@vitejs/plugin-vue'
+import path from 'path'
 
 export async function buildOnly(options) {
   try {
@@ -36,7 +36,17 @@ export async function buildOnly(options) {
         break
       }
       case 'utils': {
-        await $`tsc --project tsconfig.${pkg}.json`
+        await build({
+          root: path.resolve(process.cwd(), `./packages/${pkg}`),
+          build: {
+            emptyOutDir: false,
+            lib: {
+              entry: `index.ts`,
+              name: `vswift-${pkg}`,
+              fileName: 'index',
+            },
+          },
+        })
         break
       }
     }

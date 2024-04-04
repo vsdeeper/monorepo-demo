@@ -10,7 +10,8 @@
     "start": "vite",
     "type-check": "vswift type-check",
     "type-emit": "vswift type-emit",
-    "build": "vswift build"
+    "build": "vswift build",
+    "release": "vswift release"
   },
   "dependencies": {
     "@vswift/components": "workspace:*",

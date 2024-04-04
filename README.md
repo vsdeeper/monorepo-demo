@@ -1,6 +1,12 @@
-# bbb
+# vswift
 
 This template should help get you started developing with Vue 3 in Vite.
+
+## 版本号管理
+
+- npm version patch
+- npm version minor
+- npm version major
 
 ## Recommended IDE Setup
 

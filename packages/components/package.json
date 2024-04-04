@@ -1,7 +1,6 @@
 {
   "name": "@vswift/components",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.0.2",
   "type": "module",
   "module": "index.ts",
   "files": [
