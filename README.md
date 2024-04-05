@@ -1,45 +1,10 @@
 # vswift
 
-This template should help get you started developing with Vue 3 in Vite.
+快捷开发的 monorepo 框架，主要包含 @vswift/cli, @vswift/components, @vswift/utils, visual-development 通用脚手架、组件、方法及可视化开发组件。
 
-## 版本号管理
+## 打包发布
 
-- npm version patch
-- npm version minor
-- npm version major
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-pnpm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-pnpm dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-pnpm build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-pnpm lint
-```
+- 运行 pnpm build <-p | --pkg> <components | visual-development | utils> 命令，打包选择的 package
+- 运行 pnpm changeset 命令，填写基本信息
+- 运行 pnpm changeset version 命令生成 changelog 信息（CHANGELOG.md）
+- 运行 pnpm release <-p | --pkg> <components | visual-development | utils> 命令，发布选择的 package，也可切换到想要发布的 package 目录，运行 pnpm release 命令

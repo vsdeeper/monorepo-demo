@@ -1,14 +1,19 @@
 {
   "name": "@vswift/utils",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.0.1",
   "type": "module",
   "module": "index.ts",
   "files": [
     "dist"
   ],
+  "scripts": {
+    "release": "npm publish"
+  },
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.org"
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "radash": "^12.1.0"
   }
 }

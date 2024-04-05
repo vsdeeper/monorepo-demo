@@ -1,6 +1,4 @@
 import { Command } from 'commander'
-import { readFileSync } from 'node:fs'
-import { fileURLToPath } from 'node:url'
 
 const program = new Command()
 
@@ -10,9 +8,8 @@ program
   .action(async options => {
     const { version } = options
     if (version) {
-      const pkgPath = fileURLToPath(new URL('../package.json', import.meta.url))
-      const pkg = JSON.parse(readFileSync(pkgPath))
-      console.log(pkg.version)
+      const { parsePackage } = await import('../utils/index.js')
+      console.log(parsePackage('cli').version)
     }
   })
 
@@ -52,7 +49,10 @@ program
 program
   .command('release')
   .description('release')
-  .option('-p, --pkg <name>', 'package name to perform build, optional value: components | utils | visual-development')
+  .option(
+    '-p, --pkg <name>',
+    'package name to perform release, optional value: components | utils | visual-development',
+  )
   .action(async options => {
     const { release } = await import('./release.js')
     return release(options)
