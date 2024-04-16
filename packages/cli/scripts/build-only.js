@@ -1,8 +1,9 @@
-import { $ } from 'execa'
 import { consola } from 'consola'
 import { build } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
+import AutoImport from 'unplugin-auto-import/vite'
+import ElementPlus from 'unplugin-element-plus/vite'
 
 export async function buildOnly(options) {
   try {
@@ -13,7 +14,15 @@ export async function buildOnly(options) {
       case 'visual-development': {
         await build({
           root: path.resolve(process.cwd(), `./packages/${pkg}`),
-          plugins: [vue()],
+          plugins: [
+            vue(),
+            ElementPlus(),
+            AutoImport({
+              imports: ['vue'],
+              dts: path.resolve(process.cwd(), './auto-imports.d.ts'),
+              resolvers: [ElementPlusResolver()],
+            }),
+          ],
           build: {
             emptyOutDir: false,
             lib: {

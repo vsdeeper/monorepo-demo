@@ -1,4 +1,3 @@
-import { $ } from 'execa'
 import { consola } from 'consola'
 import { remove } from 'fs-extra'
 import path from 'path'
